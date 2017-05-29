@@ -32,19 +32,30 @@ public class DiagonalAsteroid extends Asteroid {
 
    @Override
    public void startOver(int x) {
-      int randomX = random.nextInt(Configuration.WIDTH);
+      int randomX = random.nextInt(Configuration.WIDTH + 200) - 100;
+      int bottomX = random.nextInt(Configuration.WIDTH + 200) - 100;
+      // Starting position off screen
       position = new Vector3(randomX, x, 0);
 
+      // Calculate the starting absolute speed
       int fluctuation = gameStateManager.getDifficulty().getAsteroidFluctuation();
       int minVelocity = gameStateManager.getDifficulty().getMinimumAsteroidVelocity();
       int startingSpeed = -random.nextInt(fluctuation) + minVelocity;
 
-      int velocityX = random.nextInt(fluctuation) + (minVelocity /4);
-
-      if (randomX > (Configuration.WIDTH/2))
+      // Calculate the x and y velocities based on random starting positions;
+      double tan = Math.atan2(Math.abs(randomX - bottomX), x);
+      if (randomX < bottomX )
       {
-         velocityX *= -1;
+         tan *= -1;
       }
-      velocity = new Vector3(velocityX, startingSpeed, 0);
+
+      double velX = startingSpeed * Math.sin(tan);
+      double velY = startingSpeed * Math.cos(tan);
+
+//      System.out.println("Starting speed: " + startingSpeed + " x: " + x);
+//      System.out.println("RandomX: " + randomX + ", BottomX: " + bottomX);
+//      System.out.println("Tan: " + tan + ", Vel(x,y)= (" + velX + ", " + velY + ")");
+
+      velocity = new Vector3((float)velX, (float)velY, 0);
    }
 }

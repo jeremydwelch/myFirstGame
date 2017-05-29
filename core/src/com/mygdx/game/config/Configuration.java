@@ -17,9 +17,9 @@ public class Configuration {
    public static final int NUM_ASTEROIDS_CLEARED = 0;
    public static final int NEXT_DIFFICULTY = 6;
    public static final int SCORE = 0;
-   public static final int NUM_ASTEROIDS = 3;
-   public static final int MINIMUM_ASTEROID_VELOCITY = -100;
-   public static final int ASTEROID_FLUCTUATION = 75;
+   public static final int NUM_ASTEROIDS = 4;
+   public static final int MINIMUM_ASTEROID_VELOCITY = -125;
+   public static final int ASTEROID_FLUCTUATION = 100;
    public static final String characters = "abcdefghijklmnopqrstuvwxyz'1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ:!@#$$%^&*()_";
    public static final String title = "Sir Jelly's Adventure";
 
