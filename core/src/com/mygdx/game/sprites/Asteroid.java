@@ -3,7 +3,6 @@ package com.mygdx.game.sprites;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Circle;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Shape2D;
 import com.badlogic.gdx.math.Vector3;
 import com.mygdx.game.config.Configuration;
@@ -27,8 +26,8 @@ public abstract class Asteroid implements Sprite {
    protected static int asteroidOffsetX = 50;
    protected static int asteroidOffsetY = 50;
    protected Circle bounds;
-   private com.badlogic.gdx.graphics.g2d.Sprite sprite;
-   protected float currentAngle = 0;
+   protected com.badlogic.gdx.graphics.g2d.Sprite sprite;
+   protected float currentAngle;
    protected GameStateManager gameStateManager;
 
    public Asteroid(int x, GameStateManager gameStateManager)
@@ -36,9 +35,15 @@ public abstract class Asteroid implements Sprite {
       random = new Random();
       asteroid = new Texture(Configuration.asteroid);
       sprite = new com.badlogic.gdx.graphics.g2d.Sprite(asteroid);
+      sprite.setSize(asteroidWidth, asteroidHeight);
       this.gameStateManager = gameStateManager;
       this.startOver(x);
       bounds = new Circle(position.x, position.y, asteroidRadius);
+
+      float minX = -3.0f;
+      float maxX = 3.0f;
+      Random rand = new Random();
+      currentAngle = rand.nextFloat() * (maxX - minX) + minX;
    }
 
    @Override
@@ -58,12 +63,12 @@ public abstract class Asteroid implements Sprite {
 
    @Override
    public void render(SpriteBatch spriteBatch) {
-      sprite.setSize(asteroidWidth, asteroidHeight);
       sprite.setPosition(position.x, position.y);
-      sprite.setOrigin(position.x, position.y);
-//      sprite.setRotation(currentAngle);
-      currentAngle += 1;
+      sprite.setCenter(position.x+ asteroidOffsetX, position.y + asteroidOffsetY);
+      sprite.setOriginCenter();
+      sprite.rotate(currentAngle);
       sprite.draw(spriteBatch);
+
    }
 
    @Override

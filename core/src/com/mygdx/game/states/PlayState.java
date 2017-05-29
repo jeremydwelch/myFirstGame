@@ -1,12 +1,14 @@
 package com.mygdx.game.states;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.mygdx.game.MyFirstGame;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Circle;
+import com.badlogic.gdx.math.Rectangle;
 import com.mygdx.game.config.Configuration;
-import com.mygdx.game.config.Score;
 import com.mygdx.game.sprites.Asteroid;
 import com.mygdx.game.sprites.Jellyfish;
 import com.mygdx.game.sprites.Sprite;
@@ -25,6 +27,8 @@ public abstract class PlayState extends State {
    protected ArrayList<Sprite> sprites;
    protected ArrayList<Asteroid> asteroids;
    protected BitmapFont font;
+
+//   protected ShapeRenderer shapeRenderer;
 
    public PlayState(GameStateManager gameStateManager)
    {
@@ -85,18 +89,17 @@ public abstract class PlayState extends State {
       font.draw(spriteBatch, text, x, Configuration.HEIGHT -15);
 
 
-      /*
-
+/*
       shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
-      Gdx.gl20.glLineWidth(10);
+      Gdx.gl20.glLineWidth(5);
       shapeRenderer.setColor(Color.WHITE);
 
-      for (HorizontalAsteroid asteroid : horizontalAsteroids)
+      for (Asteroid asteroid : asteroids)
       {
-         Circle circle = asteroid.getBounds();
+         Circle circle = (Circle)asteroid.getBounds();
          shapeRenderer.circle(circle.x, circle.y, circle.radius);
       }
-      Rectangle rect = jellyfish.getBounds();
+      Rectangle rect = (Rectangle)jellyfish.getBounds();
       shapeRenderer.rect(rect.x, rect.y, rect.width, rect.height);
 
       shapeRenderer.end();
