@@ -12,6 +12,7 @@ public class Configuration {
    // Screen Variables
    public static final int WIDTH = 480;
    public static final int HEIGHT = 800;
+   public static final int BACKGROUND_VELOCITY = -50;
 
    // Game Variables
    public static final int NUM_ASTEROIDS_CLEARED = 0;
@@ -24,7 +25,7 @@ public class Configuration {
    public static final String title = "Sir Jelly's Adventure";
 
    // Assets
-   public static final FileHandle font = Gdx.files.internal("fonts/radiospace.ttf");
+   public static final FileHandle font = Gdx.files.internal("fonts/radiospace.fnt");
    public static final FileHandle background = Gdx.files.internal("spacebackground.png");
    public static final FileHandle gameOverButton = Gdx.files.internal("buttons/gameover.jpg");
    public static final FileHandle pauseButton = Gdx.files.internal("buttons/pause.png");

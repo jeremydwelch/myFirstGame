@@ -23,7 +23,7 @@ public class MyFirstGame extends ApplicationAdapter {
 	public void create () {
 		spriteBatch = new SpriteBatch();
 		gameStateManager = new GameStateManager(new Stack<State>(), new OrthographicCamera(), new Vector3());
-		Gdx.gl.glClearColor(1, 0, 0, 1);
+		Gdx.gl.glClearColor(0, 0, 0, 0);
 		gameStateManager.push(new MenuState(gameStateManager));
 	}
 

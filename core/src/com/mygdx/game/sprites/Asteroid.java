@@ -42,8 +42,7 @@ public abstract class Asteroid implements Sprite {
 
       float minX = -3.0f;
       float maxX = 3.0f;
-      Random rand = new Random();
-      currentAngle = rand.nextFloat() * (maxX - minX) + minX;
+      currentAngle = random.nextFloat() * (maxX - minX) + minX;
    }
 
    @Override

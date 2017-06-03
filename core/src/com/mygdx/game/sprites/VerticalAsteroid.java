@@ -2,8 +2,6 @@ package com.mygdx.game.sprites;
 
 import com.badlogic.gdx.math.Vector3;
 import com.mygdx.game.config.Configuration;
-import com.mygdx.game.config.Difficulty;
-import com.mygdx.game.config.Score;
 import com.mygdx.game.states.GameStateManager;
 
 /**

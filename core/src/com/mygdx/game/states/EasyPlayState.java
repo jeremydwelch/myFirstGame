@@ -11,7 +11,6 @@ import com.mygdx.game.sprites.SimpleJellyfish;
 
 public class EasyPlayState extends PlayState {
 
-
    public EasyPlayState(GameStateManager gameStateManager) {
       super(gameStateManager);
 

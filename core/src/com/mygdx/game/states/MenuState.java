@@ -12,13 +12,11 @@ import com.mygdx.game.config.Configuration;
 
 public class MenuState extends State {
 
-    private Texture background;
     private Texture playButton;
     private BitmapFont font;
 
     public MenuState(GameStateManager gameStateManager) {
         super(gameStateManager);
-        background = new Texture(Configuration.background);
         playButton = new Texture(Configuration.playButton);
         font = gameStateManager.createFont(38);
     }
@@ -41,9 +39,6 @@ public class MenuState extends State {
     public void render(SpriteBatch spriteBatch)
     {
         // Always have to begin before rendering
-
-        spriteBatch.draw(background, 0,0, Configuration.WIDTH, Configuration.HEIGHT);
-
         float middleWidth = (Configuration.WIDTH / 2) - (playButton.getWidth() / 2);
         float middleHeight = Configuration.HEIGHT / 4;
 
@@ -55,7 +50,6 @@ public class MenuState extends State {
 
     @Override
     public void dispose() {
-        background.dispose();
         playButton.dispose();
     }
 }

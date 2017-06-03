@@ -12,7 +12,7 @@ import com.mygdx.game.config.Configuration;
 
 public class SelectDifficultyState extends State {
 
-   private Texture background;
+//   private Texture background;
    private BitmapFont easy;
    private BitmapFont medium;
    private BitmapFont hard;
@@ -26,16 +26,16 @@ public class SelectDifficultyState extends State {
    public SelectDifficultyState(GameStateManager gameStateManager)
    {
       super(gameStateManager);
-      background = new Texture(Configuration.background);
+//      background = new Texture(Configuration.background);
       easy = gameStateManager.createFont(35);
-      medium = gameStateManager.createFont(35);
+//      medium = gameStateManager.createFont(35);
       hard = gameStateManager.createFont(35);
 
       easyText = "Easy";
-      mediumText = "Medium";
+//      mediumText = "Medium";
       hardText = "Hard";
       easyX = (Configuration.WIDTH - gameStateManager.getTextWidth(easy, easyText))/ 2;
-      mediumX = (Configuration.WIDTH - gameStateManager.getTextWidth(medium, mediumText))/ 2;
+//      mediumX = (Configuration.WIDTH - gameStateManager.getTextWidth(medium, mediumText))/ 2;
       hardX = (Configuration.WIDTH - gameStateManager.getTextWidth(hard, hardText))/ 2;
 
    }
@@ -45,20 +45,20 @@ public class SelectDifficultyState extends State {
    {
       if ( Gdx.input.justTouched() )
       {
-         if (Gdx.input.getY() > (Configuration.HEIGHT *0.6f))
+         if (Gdx.input.getY() > (Configuration.HEIGHT *0.50f))
          {
 //               System.out.println("HARD");
             gameStateManager.set(new HardPlayState(gameStateManager));
          }
-         else if (Gdx.input.getY() > (Configuration.HEIGHT *0.4f))
-         {
-//               System.out.println("MEDIUM");
-            gameStateManager.set(new MediumPlayState(gameStateManager));
-         }
+//         else if (Gdx.input.getY() > (Configuration.HEIGHT *0.4f))
+//         {
+////               System.out.println("MEDIUM");
+//            gameStateManager.set(new MediumPlayState(gameStateManager));
+//         }
          else
          {
 //               System.out.println("EASY");
-            gameStateManager.set(new EasyPlayState(gameStateManager));
+            gameStateManager.set(new MediumPlayState(gameStateManager));
          }
          this.dispose();
       }
@@ -71,18 +71,18 @@ public class SelectDifficultyState extends State {
 
    @Override
    public void render(SpriteBatch spriteBatch) {
-      spriteBatch.draw(background, 0,0, Configuration.WIDTH, Configuration.HEIGHT);
+//      spriteBatch.draw(background, 0,0, Configuration.WIDTH, Configuration.HEIGHT);
 
-      easy.draw(spriteBatch, easyText, easyX, Configuration.HEIGHT *0.7f);
-      medium.draw(spriteBatch, mediumText, mediumX, Configuration.HEIGHT *0.5f);
-      hard.draw(spriteBatch, hardText, hardX, Configuration.HEIGHT *0.3f);
+      easy.draw(spriteBatch, easyText, easyX, Configuration.HEIGHT *0.6f);
+//      medium.draw(spriteBatch, mediumText, mediumX, Configuration.HEIGHT *0.5f);
+      hard.draw(spriteBatch, hardText, hardX, Configuration.HEIGHT *0.4f);
 
    }
 
    @Override
    public void dispose() {
-      background.dispose();
+//      background.dispose();
       easy.dispose();
-      medium.dispose();
+      hard.dispose();
    }
 }

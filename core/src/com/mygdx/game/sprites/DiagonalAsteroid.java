@@ -33,7 +33,7 @@ public class DiagonalAsteroid extends Asteroid {
    @Override
    public void startOver(int x) {
       int randomX = random.nextInt(Configuration.WIDTH + 200) - 100;
-      int bottomX = random.nextInt(Configuration.WIDTH + 200) - 100;
+      int bottomX = random.nextInt(Configuration.WIDTH);
       // Starting position off screen
       position = new Vector3(randomX, x, 0);
 

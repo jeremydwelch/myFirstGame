@@ -1,13 +1,9 @@
 package com.mygdx.game.states;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.math.Circle;
-import com.badlogic.gdx.math.Rectangle;
 import com.mygdx.game.config.Configuration;
 import com.mygdx.game.sprites.Asteroid;
 import com.mygdx.game.sprites.Jellyfish;
@@ -22,7 +18,7 @@ import java.util.ArrayList;
 public abstract class PlayState extends State {
 
    protected Jellyfish jellyfish;
-   protected Texture background;
+//   protected Texture background;
    protected Texture pause;
    protected ArrayList<Sprite> sprites;
    protected ArrayList<Asteroid> asteroids;
@@ -33,7 +29,7 @@ public abstract class PlayState extends State {
    public PlayState(GameStateManager gameStateManager)
    {
       super(gameStateManager);
-      background = new Texture(Configuration.background);
+//      background = new Texture(Configuration.background);
       pause = new Texture(Configuration.pauseButton);
 
       sprites = new ArrayList<Sprite>();
@@ -75,7 +71,7 @@ public abstract class PlayState extends State {
    @Override
    public void render(SpriteBatch spriteBatch)
    {
-      spriteBatch.draw(background, 0,0, Configuration.WIDTH, Configuration.HEIGHT);
+//      spriteBatch.draw(background, 0,0, Configuration.WIDTH, Configuration.HEIGHT);
       spriteBatch.draw(pause, 0, Configuration.HEIGHT -50, 50, 50);
 
       for (Sprite sprite:sprites)
@@ -109,7 +105,7 @@ public abstract class PlayState extends State {
    @Override
    public void dispose() {
 
-      background.dispose();
+//      background.dispose();
       pause.dispose();
       font.dispose();
       for (Sprite sprite:sprites)

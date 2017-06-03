@@ -12,13 +12,13 @@ import com.mygdx.game.config.Configuration;
 
 public class GameOverState extends State {
 
-   private Texture background;
+//   private Texture background;
    private Texture gameover;
    private BitmapFont font;
 
    public GameOverState(GameStateManager gameStateManager) {
       super(gameStateManager);
-      background = new Texture(Configuration.background);
+//      background = new Texture(Configuration.background);
       gameover = new Texture(Configuration.gameOverButton);
       font = gameStateManager.createFont();
    }
@@ -43,7 +43,7 @@ public class GameOverState extends State {
    @Override
    public void render(SpriteBatch spriteBatch)
    {
-      spriteBatch.draw(background, 0,0, Configuration.WIDTH, Configuration.HEIGHT);
+//      spriteBatch.draw(background, 0,0, Configuration.WIDTH, Configuration.HEIGHT);
       spriteBatch.draw(gameover, 200, Configuration.HEIGHT/2, 100, 100);
 
       String text = "High Score: " + gameStateManager.getScore().getScore().toString();
@@ -56,7 +56,7 @@ public class GameOverState extends State {
    @Override
    public void dispose() {
 
-      background.dispose();
+//      background.dispose();
       gameover.dispose();
       font.dispose();
    }
